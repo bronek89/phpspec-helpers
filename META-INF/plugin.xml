@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.bronek-php-inspections</id>
+    <name>PHPSpec Helpers</name>
+    <depends>com.jetbrains.php</depends>
+    <depends>com.intellij.modules.platform</depends>
+    <version>1.0</version>
+    <vendor email="after89@gmail.com" url="http://bronek.it">Bronek.it</vendor>
+
+    <description><![CDATA[
+      PHPSpec helpers.<br>
+      <ul>
+      <li>describe class</li>
+      </ul>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="211"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <intentionAction id="com.bronek.phpinspections.MakeDecoratorAction">
+            <className>com.bronek.phpinspections.MakeDecoratorAction</className>
+        </intentionAction>
+    </extensions>
+
+    <actions>
+        <group id="PhpSpecGroup">
+            <action id="CreateSpecAction"
+                    class="com.bronek.phpinspections.DescribeClassAction"
+                    text="Describe Class"
+                    description="Create a spec file."/>
+            <separator/>
+            <add-to-group group-id="GenerateGroup" anchor="first"/>
+        </group>
+    </actions>
+
+</idea-plugin>
